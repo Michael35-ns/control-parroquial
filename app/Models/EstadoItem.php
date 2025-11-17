@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class EstadoItem extends Model
 {
     use HasFactory;
-
+protected $table = 'estados_items';
     protected $fillable = [
-        'descripciopn'
+        'descripcion'
     ];
 }

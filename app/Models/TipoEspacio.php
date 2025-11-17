@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoEspacio extends Model
 {
-    use HasFactory;
 
+    use HasFactory;
+    protected $table = 'tipos_espacios';
     protected $fillable = [
         'nombre'
     ];

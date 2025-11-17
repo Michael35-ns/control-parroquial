@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title', config('app.name', 'Laravel'))</title>
 
     @include('partials.head')
@@ -45,9 +44,13 @@
         @endif
     </div>
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireScripts
-    @fluxScripts
-
+    @if(session('success'))
+    <script>
+        window.successMessage = @json(session('success'));
+    </script>
+    @endif
     {{ $scripts ?? '' }}
 </body>
 

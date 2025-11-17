@@ -10,11 +10,22 @@ class Inventario extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_espacio',
+        'espacio_id',
         'nombre',
         'descripcion',
         'cantidad',
-        'id_estado',
+        'estado_item_id',
         'fecha_registro'
     ];
+    protected $casts = [
+        'fecha_registro' => 'datetime',
+    ];
+    public function espacio()
+    {
+        return $this->belongsTo(Espacio::class, 'espacio_id');
+    }
+    public function estadoItem()
+    {
+        return $this->belongsTo(EstadoItem::class, 'estado_item_id');
+    }
 }

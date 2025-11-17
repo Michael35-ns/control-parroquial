@@ -10,8 +10,19 @@ class Espacio extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id_coomunidad',
+        'id_comunidad',
         'id_tipo_espacio',
         'nombre',
     ];
+
+    public function comunidad()
+    {
+        return $this->belongsTo(Comunidad::class, 'comunidad_id');
+    }
+    public function tipoEspacio()
+    {
+        return $this->belongsTo(TipoEspacio::class, 'tipo_espacio_id');
+    }
+
+
 }

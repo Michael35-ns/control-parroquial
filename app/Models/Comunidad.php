@@ -21,4 +21,9 @@ class Comunidad extends Model
     {
         return $this->hasMany(User::class, 'comunidad_id');
     }
+
+    public function espacios()
+    {
+        return $this->hasMany(Espacio::class, 'comunidad_id');
+    }
 }
